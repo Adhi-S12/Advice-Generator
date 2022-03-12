@@ -38,6 +38,7 @@
 
 .card-divider {
 	margin: 20px auto 0px auto;
+	transform: scale(.85);
 }
 
 .card-dice {
@@ -62,5 +63,9 @@
 @media screen and (min-width: 550px) {
 	.card {
 		width: 500px;
+	}
+
+	.card-divider {
+		transform: scale(1);
 	}
 }

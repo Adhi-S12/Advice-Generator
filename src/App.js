@@ -33,22 +33,22 @@ function App() {
 	}, []);
 
 	return (
-		<div className="App">
-			<div className="card">
-				<h3 className="card-head">ADVICE #{advice.number}</h3>
+		<main className="App">
+			<section className="card">
+				<h1 className="card-head">ADVICE #{advice.number}</h1>
 				{advice.quote == null ? (
 					<h2 className="card-advice">Loading...</h2>
 				) : (
 					<h2 className="card-advice">"{advice.quote}"</h2>
 				)}
 				<div className="card-divider">
-					<Divider transform="scale(0.85)" />
+					<Divider />
 				</div>
-				<button onClick={updateAdvice} className="card-dice">
+				<button title="Button to fetch new advice" type="button" onClick={updateAdvice} className="card-dice">
 					<IconDice />
 				</button>
-			</div>
-		</div>
+			</section>
+		</main>
 	);
 }
 
