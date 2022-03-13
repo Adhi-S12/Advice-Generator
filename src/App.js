@@ -10,6 +10,10 @@ function App() {
 	});
 	const [ disableButton, setDisableButton ] = useState(false);
 
+	useEffect(() => {
+		updateAdvice();
+	}, []);
+
 	const updateAdvice = async () => {
 		try {
 			setDisableButton(true);
@@ -39,10 +43,6 @@ function App() {
 			});
 		}
 	};
-
-	useEffect(() => {
-		updateAdvice();
-	}, []);
 
 	return (
 		<main className="App">
