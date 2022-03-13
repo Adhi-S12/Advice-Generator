@@ -8,9 +8,11 @@ function App() {
 		quote: null,
 		number: 0,
 	});
+	const [ disableButton, setDisableButton ] = useState(false);
 
 	const updateAdvice = async () => {
 		try {
+			setDisableButton(true);
 			setAdvice({
 				quote: null,
 				number: 0,
@@ -18,7 +20,17 @@ function App() {
 			const response = await fetch('https://api.adviceslip.com/advice');
 			const data = await response.json();
 			const { slip } = data;
-			setAdvice({ quote: slip.advice, number: slip.id });
+			if (slip.advice === advice.quote) {
+				setDisableButton(true);
+				setAdvice({
+					quote: null,
+					number: 0,
+				});
+				updateAdvice();
+			} else {
+				setAdvice({ quote: slip.advice, number: slip.id });
+				setDisableButton(false);
+			}
 		} catch (error) {
 			console.error(error);
 			setAdvice({
@@ -39,12 +51,18 @@ function App() {
 				{advice.quote == null ? (
 					<h2 className="card-advice">Loading...</h2>
 				) : (
-					<h2 className="card-advice">"{advice.quote}"</h2>
+					<h2 className="card-advice">“{advice.quote}”</h2>
 				)}
 				<div className="card-divider">
 					<Divider />
 				</div>
-				<button title="Button to fetch new advice" type="button" onClick={updateAdvice} className="card-dice">
+				<button
+					disabled={disableButton}
+					title="Button to fetch new advice"
+					type="button"
+					onClick={updateAdvice}
+					className="card-dice"
+				>
 					<IconDice />
 				</button>
 			</section>
