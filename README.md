@@ -14,8 +14,8 @@ This is a solution to the [Advice generator app challenge on Frontend Mentor](ht
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/AdhipathiPandiyan-S/Advice-Generator)
-- Live Site URL: [Add live site URL here](https://advice-generator-challenge-fementor.netlify.app/)
+- Solution URL: [Solution Code](https://github.com/AdhipathiPandiyan-S/Advice-Generator)
+- Live Site URL: [Netlify Live Link](https://advice-generator-challenge-fementor.netlify.app/)
 
 ### Built with
 
